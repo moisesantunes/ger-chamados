@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="PT-BR" >
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+v*{
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+}
+
+li.aberta{
+	color:red;
+}
+li.chamada{
+	color:green;
+}
+</style>
+</head>
+<body>
+<h2>Configuração</h2>
+<form action="/config" method="post">
+
+	<input type="number" step="1" min="1" value="1" name="nova">
+	<select id="servico" name="servico">
+	  <option value="af">Abrir Ficha</option>
+	  <option value="mc">Marcar Consulta</option>
+	  <option value="ss">Seviço Social</option>
+	  
+	</select>
+	<button>salvar</button>
+</form>
+  
+<hr>
+
+
+<a href="/">inicio</a> 
+
+||
+<a href="/config" >config </a>
+<hr>
+
+</body>
+</html>

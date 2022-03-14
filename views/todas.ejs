@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="PT-BR" >
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+<style>
+v*{
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+}
+
+li.aaberta{
+	color:red;
+}
+li.cchamada{
+	color:green;
+}
+</style>
+</head>
+<body>
+<ul>
+  <% senhas.forEach(function(senha, i, arr){ %>
+   <li class="<%= senha.estado %>">
+   	<%= senha.num  %> -	<%= senha.id %>- <%= senha.chamado_por %>
+   </li>
+  <% }); %>
+</ul>
+
+<hr>
+
+
+
+<a href="/">Inicio</a> 
+|| 
+
+<a href="/config" >config </a> 
+<hr>
+
+
+<script>
+
+var source = new EventSource("/content");
+source.onmessage = function(event) {
+  //document.getElementById("result").innerHTML += event.data + "<br>";
+alert(event.data)
+};
+
+</script>
+
+</body>
+</html>

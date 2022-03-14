@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="PT-BR" >
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="">
+	<% senhas.forEach(function(senha, i, arr){ %>
+		<% if(arr[i].estado == "aberta"){ %>
+			<div class="<%= senha.estado %>">
+				<%= senha.num  %>	
+			</div>
+		<% } %>
+	<% }); %>
+	</div>
+	
+	<hr>
+
+	<% if(user){ %>
+	<div class="senhas">
+		<a href="/nova/af">+Abrir</a> 
+		<a href="/nova/mc">+Marcar</a> 
+		<a href="/nova/sc">+Social</a> 
+	</div>
+|| 
+<% if(prox){ %>
+<a href="/atender/id/<%= prox.id %>">
+	next:<%= prox.num %>
+</a>
+<% } %>
+||
+<a href="/config" >config </a>
+
+<% }else { %>
+	<p> Entre para trabalhar</p>
+<%}%>
+
+
+
+<hr>
+proxima: <%= typeof prox != "undefined" ? prox.id : "nc" %>| qtd senhas: <%= senhas.length %>
+
+<br>
+<a href="/todas">todas</a>
+<br>
+<hr>
+<%- include("login") %>
+<% if(user){ %>
+<h2><%= user.username%></h2>
+<%}%>
+<script>
+
+var source = new EventSource("/content");
+source.onmessage = function(event) {
+  //document.getElementById("result").innerHTML += event.data + "<br>";
+alert(event.data)
+};
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+
+
+
+ul li.aberta{
+	color:green;
+	
+}
+ul li.encerrada{
+	color:blue;
+}
+ul li.chamada{
+	color:yellow;
+}
